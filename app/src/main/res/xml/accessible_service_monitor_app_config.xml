@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/monitor_app_accessibility_desc"
+    android:accessibilityEventTypes="typeWindowStateChanged"
+    android:accessibilityFeedbackType="feedbackAllMask"
+    android:accessibilityFlags="flagIncludeNotImportantViews" />
+    <!--
+    accessibilityEventTypes: 监听的事件类型. typeWindowStateChanged: 监听窗口状态变化
+    accessibilityFeedbackType: 反馈类型. feedbackAllMask: 所有的可用反馈类型
+    accessibilityFlags: 辅助功能附加的标志. flagIncludeNotImportantViews: 可获取到一些被表示为辅助功能无权获取到的view
+    -->

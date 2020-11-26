@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/petItem"
+        android:icon="@drawable/rabbit"
+        android:title="@string/pet"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/poemItem"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="@string/poem" />
+
+    <item
+        android:id="@+id/settingItem"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/setting" />
+
+    <item
+        android:id="@+id/allowListItem"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/allow_list" />
+
+    <item
+        android:id="@+id/aboutItem"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/about" />
+</menu>

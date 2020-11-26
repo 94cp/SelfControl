@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "cp.kt.selfcontrol"
+        minSdkVersion 26
+        targetSdkVersion 29
+        versionCode 1
+        versionName "2.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:+'
+    implementation 'androidx.appcompat:appcompat:+'
+    implementation 'com.google.android.material:material:+'
+    implementation 'androidx.constraintlayout:constraintlayout:+'
+    implementation 'androidx.legacy:legacy-support-v4:+'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:+'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:+'
+
+    // navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Event Bus
+    implementation "com.jeremyliao:live-event-bus-x:$live_event_bus_version"
+
+    // Recyclerview
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$recyclerview_adapter_version"
+
+    // Dialog
+    implementation "com.afollestad.material-dialogs:core:$material_dialogs_version"
+    implementation "com.afollestad.material-dialogs:input:$material_dialogs_version"
+    implementation "com.afollestad.material-dialogs:datetime:$material_dialogs_version"
+
+    // GIF
+    implementation "pl.droidsonroids.gif:android-gif-drawable:$gif_drawable_version"
+
+    // FloatWindow
+    implementation "com.github.yhaolpz:FloatWindow:$float_window_version"
+
+    // Loading
+    implementation "com.github.miaotaoii:AndroidLoading:$loading_version"
+}
