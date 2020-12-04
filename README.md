@@ -1,6 +1,6 @@
 # SelfControl
 
-## 功能
+## 1 功能
 
 - 支持黑暗模式
 - 支持小狗、小松鼠、小兔子3种监控宠物
@@ -9,12 +9,12 @@
 - 支持自动作诗
 - 使用Kotlin重写，代码更健壮
 
-## 关键技术点
+## 2 关键技术点
 
 - 如何判断APP前后台状态（UsageStatsManager 或 AccessibilityService）
 - 如何关闭其它APP
 
-## 六种判断APP前后台状态方法
+## 3 六种判断APP前后台状态方法
 -----
 
 | 方法  | 原理                       | 权限 | 是否可判断其它APP前后台状态      | 特点                                                         |
@@ -30,7 +30,7 @@
 
 由于其它方式都无法很好地判断其它APP的前后台状态，故仅选用了方法5`UsageStatsManager`和方法6`AccessibilityService`。
 
-## UsageStatsManager
+## 4 UsageStatsManager
 
 通过UsageStatsManager可以获取一个时间段内的应用统计信息，利用此方式可以间接获取APP前后台状态。
 
@@ -97,7 +97,7 @@ class AlarmMonitorAppReceiver : BroadcastReceiver() {
 }
 ```
 
-## AccessibilityService
+## 5 AccessibilityService
 
 Android 辅助功能(AccessibilityService) 为我们提供了一系列的事件回调，帮助我们指示一些用户界面的状态变化。 我们可以派生辅助功能类，进而对不同的 AccessibilityEvent 进行处理。 同样的，这个服务就可以用来判断当前的前台应用。且不再需要轮询的判断当前的应用是不是在前台，系统会在窗口状态发生变化的时候主动回调，耗时和资源消耗都极小。
 
@@ -145,7 +145,7 @@ class MonitorAppService : AccessibilityService() {
     -->
 ```
 
-## 关闭其它APP
+## 6 关闭其它APP
 
 ```kotlin
 // 实际上我们无法关闭其它APP，但可以通过模拟点击Home键，将屏幕退回到主界面，以此模拟实现关闭效果
@@ -158,9 +158,9 @@ private fun closeApp() {
 }
 ```
 
-## AccessibilityService的一些其它骚操作
+## 7 AccessibilityService的一些其它骚操作
 
-### 抢红包
+### 7.1 抢红包
 
 抢红包流程：
 
@@ -291,7 +291,7 @@ public class RobService extends AccessibilityService {
 }
 ```
 
-### 自动安装APP
+### 7.2 自动安装APP
 
 安装APP流程：
 
@@ -363,17 +363,26 @@ public class InstallService extends AccessibilityService {
 }
 ```
 
-### 领喵币
+### 7.3 领喵币
 
 见：[双十一领喵币](https://github.com/tyhjh/TmallCoin)
 
-### 窃取与反窃取
+### 7.4 窃取与反窃取
 
 窃取：如窃取短信验证码，窃取短信内容等等
 
 反窃取：如根据抢红包插件的原理，利用AccessibilityService发送虚假微信红包通知，就可以让抢红包插件失效
 
-## 三方库
+### ......
+
+## 8 三方库
 
 - [FloatWindow 安卓任意界面悬浮窗](https://github.com/yhaolpz/FloatWindow)
 - [LiveEventBus是一款Android消息总线，基于LiveData，具有生命周期感知能力，支持Sticky，支持AndroidX，支持跨进程，支持跨APP](https://github.com/JeremyLiao/LiveEventBus)
+
+## 9 参考资料
+
+- [你真的理解AccessibilityService吗](https://www.jianshu.com/p/4cd8c109cdfb)
+- [AndroidProcess](https://github.com/wenmingvs/AndroidProcess)
+- [做一款类似我要当学霸里的学习监督的APP](https://www.cnblogs.com/dasusu/p/5470635.html)
+
